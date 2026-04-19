@@ -34,31 +34,28 @@
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Base overrides — inside @layer base so Tailwind utilities still win */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  body {
+    background-color: var(--forest);
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+  }
 
-body {
-  background-color: var(--forest);
-  color: var(--cream);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  cursor: none;
-}
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+  }
 
-@media (pointer: coarse) {
-  body { cursor: auto; }
-}
-
-*:focus-visible {
-  outline: 2px solid var(--terracotta);
-  outline-offset: 3px;
+  *:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

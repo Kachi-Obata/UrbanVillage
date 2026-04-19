@@ -114,7 +114,7 @@ function DesktopPanels() {
           </div>
         ))}
 
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-24 z-10 px-5">
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 lg:pb-20 z-10 px-5 lg:px-20">
           <AnimatePresence mode="wait">
             <motion.div
               key={activePanel}
@@ -182,7 +182,7 @@ function MobilePanels() {
           <p className="absolute top-6 left-6 font-display text-[14px] text-cream/35 z-10">
             {panel.number}
           </p>
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-20 px-5 z-10 text-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 px-5 z-10 text-center">
             <p className="font-sans text-[11px] text-terracotta tracking-[0.2em] uppercase mb-3">
               {panel.category}
             </p>

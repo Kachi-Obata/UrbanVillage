@@ -70,23 +70,23 @@ export default function VisitUs() {
 
         <FadeInView delay={0.2}>
           <div className="text-center mb-12">
-            <p className="font-sans text-[15px] text-cream/70">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-0 font-sans text-[15px] text-cream/70">
               <a
                 href="tel:+2348033337998"
                 data-cursor="hover"
-                className="hover:text-cream transition-colors"
+                className="whitespace-nowrap hover:text-cream transition-colors"
               >
                 +234 803 333 7998
               </a>
-              <span className="mx-3 text-cream/30">|</span>
+              <span className="hidden sm:inline mx-3 text-cream/30">|</span>
               <a
                 href="mailto:terivikparkurbanvillage@gmail.com"
                 data-cursor="hover"
-                className="hover:text-cream transition-colors"
+                className="hover:text-cream transition-colors text-[13px] sm:text-[15px]"
               >
                 terivikparkurbanvillage@gmail.com
               </a>
-            </p>
+            </div>
           </div>
         </FadeInView>
 
