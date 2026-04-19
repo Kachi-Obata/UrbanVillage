@@ -29,6 +29,9 @@
   --color-gold: var(--gold);
   --color-cream: var(--cream);
   --color-dark: var(--dark);
+
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 *, *::before, *::after {
