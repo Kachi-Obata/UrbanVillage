@@ -2,12 +2,30 @@ import FadeInView from "@/components/ui/FadeInView";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const photos = [
-  { src: "/images/gallery-01.webp", alt: "Wide shot of Urban Village park showing the full canopy and scope" },
-  { src: "/images/gallery-02.webp", alt: "Outdoor dining table with food at Urban Village" },
-  { src: "/images/gallery-03.webp", alt: "Bar or cocktail moment at Urban Village" },
-  { src: "/images/gallery-04.webp", alt: "Interior of the café or wellness space at Urban Village" },
-  { src: "/images/gallery-05.webp", alt: "Games and activity area at Urban Village" },
-  { src: "/images/gallery-06.webp", alt: "Urban Village at evening showing warm ambient lighting" },
+  {
+    src: "/images/thespace.jpeg",
+    alt: "Wide view of The Space at Urban Village with greenery and seating",
+  },
+  {
+    src: "/images/dining-image.jpeg",
+    alt: "Dining section setup with tableware and food at Urban Village",
+  },
+  {
+    src: "/images/bar-drinks.jpg",
+    alt: "Bar and drinks section featuring cocktails at Urban Village",
+  },
+  {
+    src: "/images/thecafe.jpeg",
+    alt: "The Café section with coffee and pastries at Urban Village",
+  },
+  {
+    src: "/images/wellness.jpg",
+    alt: "Wellness section ambiance at Urban Village",
+  },
+  {
+    src: "/images/outdoor-games.jpeg",
+    alt: "Outdoor games section with activity space at Urban Village",
+  },
 ];
 
 export default function SpaceGallery() {

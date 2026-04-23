@@ -12,7 +12,8 @@ const panels = [
       "Nigerian roots, world-class technique. Eyitomi's kitchen brings both to the table with equal confidence.",
     cta: "See the Menu →",
     href: "#menu",
-    image: "/images/panel-01-dining.webp",
+  image: "/images/dining-image.jpeg",
+  position: "center 55%",
     alt: "Outdoor dining space with table set and food, surrounded by lush greenery in warm evening light",
   },
   {
@@ -23,7 +24,8 @@ const panels = [
       "From palmwine served straight to frozen daiquiris made with care. Every glass here is an occasion.",
     cta: "View Drinks →",
     href: "#menu",
-    image: "/images/panel-02-bar.webp",
+  image: "/images/bar-drinks.jpg",
+  position: "center 45%",
     alt: "Bar area at night with warm ambient lighting and rich colours",
   },
   {
@@ -34,7 +36,8 @@ const panels = [
       "Artisanal coffees, fresh pastries. The right beginning — or a quiet pause in the middle of the day.",
     cta: "Morning Menu →",
     href: "#menu",
-    image: "/images/panel-03-cafe.webp",
+  image: "/images/thecafe.jpeg",
+  position: "center",
     alt: "Coffee cups and pastries in soft morning light at the Urban Village café",
   },
   {
@@ -45,7 +48,8 @@ const panels = [
       "A barbershop, salon, spa, and gym. The rare luxury of giving yourself proper attention.",
     cta: "Wellness →",
     href: "#visit",
-    image: "/images/panel-04-wellness.webp",
+  image: "/images/wellness.jpg",
+  position: "center 35%",
     alt: "Clean and warm spa or salon interior at Urban Village wellness suite",
   },
   {
@@ -56,7 +60,8 @@ const panels = [
       "Tennis, snooker, table tennis. The park gives you the excuse you needed to stay outside all afternoon.",
     cta: "Activities →",
     href: "#visit",
-    image: "/images/panel-05-games.webp",
+  image: "/images/outdoor-games.jpeg",
+  position: "center",
     alt: "Tennis court and games area with lush park backdrop",
   },
   {
@@ -68,6 +73,7 @@ const panels = [
     cta: "Plan an Event →",
     href: "#visit",
     image: "/images/panel-06-events.webp",
+  position: "center",
     alt: "Event setup with dressed tables, warm evening lighting and guests",
   },
 ];
@@ -102,7 +108,10 @@ function DesktopPanels() {
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${panel.image}')` }}
+              style={{
+                backgroundImage: `url('${panel.image}')`,
+                backgroundPosition: panel.position ?? "center",
+              }}
             />
             <div
               className="absolute inset-0"
@@ -170,7 +179,10 @@ function MobilePanels() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${panel.image}')` }}
+            style={{
+              backgroundImage: `url('${panel.image}')`,
+              backgroundPosition: panel.position ?? "center",
+            }}
           />
           <div
             className="absolute inset-0"
