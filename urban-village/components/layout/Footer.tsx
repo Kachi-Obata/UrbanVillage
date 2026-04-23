@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-5 lg:px-20">
         <div className="mx-auto w-fit mb-8">
           <Image
-            src="/urban-village-logo.png"
+            src="/images/urban-village-logo.png"
             alt="Urban Village by Terivik logo"
             width={120}
             height={240}

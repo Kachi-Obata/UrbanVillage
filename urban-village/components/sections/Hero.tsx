@@ -46,8 +46,8 @@ export default function Hero({ onImageLoaded }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden"
-      style={{ height: "100svh" }}
+      className="relative w-full overflow-hidden h-screen"
+      style={{ height: "100dvh" }}
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

@@ -25,6 +25,16 @@ export const metadata: Metadata = {
   title: "Urban Village by Terivik | Relaxation Park & Restaurant, Maitama Abuja",
   description:
     "Abuja's premier outdoor escape. Dine, unwind, and play at Urban Village by Terivik Park — lush gardens, great food, cocktails, spa, and events in Maitama.",
+  icons: {
+    icon: [
+      { url: "/images/urban-village-logo.png", type: "image/png" },
+      { url: "/images/urban-village-logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/urban-village-logo.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/images/urban-village-logo.png",
+    apple: [{ url: "/images/urban-village-logo.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Urban Village by Terivik — Maitama, Abuja",
     description:

@@ -99,7 +99,7 @@ function DesktopPanels() {
 
   return (
     <div ref={containerRef} style={{ height: "600vh" }} className="relative">
-      <div className="sticky top-0 h-svh overflow-hidden">
+  <div className="sticky top-0 h-screen lg:h-[100svh] overflow-hidden">
         {panels.map((panel, i) => (
           <div
             key={panel.number}
@@ -174,7 +174,7 @@ function MobilePanels() {
       {panels.map((panel) => (
         <section
           key={panel.number}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden h-screen"
           style={{ height: "100svh" }}
         >
           <div
