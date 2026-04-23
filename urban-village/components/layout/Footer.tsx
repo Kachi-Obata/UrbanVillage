@@ -1,7 +1,19 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-night py-16 text-center">
       <div className="max-w-[1280px] mx-auto px-5 lg:px-20">
+        <div className="mx-auto w-fit mb-8">
+          <Image
+            src="/urban-village-logo.png"
+            alt="Urban Village by Terivik logo"
+            width={120}
+            height={240}
+            priority={false}
+            className="h-auto w-[92px] lg:w-[110px] object-contain opacity-95"
+          />
+        </div>
         <p className="font-display text-[18px] tracking-[0.2em] text-cream/80 uppercase">
           Urban Village
         </p>
