@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LoadingScreenProps {
@@ -12,6 +13,7 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
   const [exiting, setExiting] = useState(false);
   const [showProgress, setShowProgress] = useState(false);
   const exitTriggered = useRef(false);
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     const slowTimer = setTimeout(() => setShowProgress(true), 3000);
@@ -19,6 +21,9 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
   }, []);
 
   useEffect(() => {
+    const MIN_DURATION_MS = 4000;
+    const MAX_WAIT_MS = 6000;
+
     const triggerExit = () => {
       if (exitTriggered.current) return;
       exitTriggered.current = true;
@@ -26,13 +31,18 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
       setTimeout(onComplete, 600);
     };
 
+    let minTimer: ReturnType<typeof setTimeout> | null = null;
     if (heroLoaded) {
-      const timer = setTimeout(triggerExit, 2400);
-      return () => clearTimeout(timer);
+      const elapsed = Date.now() - mountedAt.current;
+      const remaining = Math.max(0, MIN_DURATION_MS - elapsed);
+      minTimer = setTimeout(triggerExit, remaining);
     }
 
-    const fallback = setTimeout(triggerExit, 4000);
-    return () => clearTimeout(fallback);
+    const fallback = setTimeout(triggerExit, MAX_WAIT_MS);
+    return () => {
+      if (minTimer) clearTimeout(minTimer);
+      clearTimeout(fallback);
+    };
   }, [heroLoaded, onComplete]);
 
   return (
@@ -54,6 +64,22 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
           />
 
           <div className="relative text-center">
+            <motion.div
+              className="mx-auto mb-5 w-fit"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <Image
+                src="/images/urban-village-logo.png"
+                alt="Urban Village logo"
+                width={96}
+                height={192}
+                priority
+                className="h-auto w-[74px] lg:w-[200px] object-contain"
+              />
+            </motion.div>
+
             <motion.p
               className="font-display text-[42px] text-cream tracking-[0.25em] uppercase"
               initial={{ opacity: 0, y: 10 }}
