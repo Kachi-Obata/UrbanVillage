@@ -5,7 +5,7 @@ export default function Manifesto() {
   return (
     <section
       id="manifesto"
-      className="bg-forest py-[72px] lg:py-[120px] px-5 lg:px-20"
+      className="section-grain section-pattern ambient-surface bg-forest py-[72px] lg:py-[120px] px-5 lg:px-20 relative overflow-hidden"
     >
       <div className="max-w-[640px] mx-auto text-center">
         <FadeInView>
@@ -29,6 +29,14 @@ export default function Manifesto() {
               <br />
               Come for one thing. Stay until you&apos;ve had everything.
             </p>
+          </div>
+        </FadeInView>
+
+        <FadeInView delay={0.2}>
+          <div className="flex items-center justify-center gap-3 mt-10 mb-2">
+            <span className="h-px w-12 bg-gold/40" />
+            <span className="w-2 h-2 rounded-full bg-terracotta/70" />
+            <span className="h-px w-12 bg-gold/40" />
           </div>
         </FadeInView>
 

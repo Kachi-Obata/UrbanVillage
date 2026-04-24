@@ -54,8 +54,7 @@ export default function MenuPreview() {
   return (
     <section
       id="menu"
-      className="py-[72px] lg:py-[120px] px-5 lg:px-20"
-      style={{ backgroundColor: "var(--earth)" }}
+      className="section-pattern ambient-surface overflow-hidden bg-earth py-[72px] lg:py-[120px] px-5 lg:px-20"
     >
       <div className="max-w-[1280px] mx-auto">
         <div className="text-center mb-16">

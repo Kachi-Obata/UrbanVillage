@@ -72,8 +72,8 @@ const panels = [
       "Birthdays, anniversaries, corporate gatherings. We build the setting. You make the memory.",
     cta: "Plan an Event →",
     href: "#visit",
-    image: "/images/panel-06-events.webp",
-  position: "center",
+  image: "/images/events.jpg",
+    position: "center",
     alt: "Event setup with dressed tables, warm evening lighting and guests",
   },
 ];
@@ -106,13 +106,17 @@ function DesktopPanels() {
             className="absolute inset-0 transition-opacity duration-[800ms]"
             style={{ opacity: activePanel === i ? 1 : 0 }}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${panel.image}')`,
-                backgroundPosition: panel.position ?? "center",
-              }}
-            />
+            {panel.image ? (
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${panel.image}')`,
+                  backgroundPosition: panel.position ?? "center",
+                }}
+              />
+            ) : (
+              <div className="absolute inset-0 section-pattern ambient-surface bg-forest" />
+            )}
             <div
               className="absolute inset-0"
               style={{
@@ -177,13 +181,17 @@ function MobilePanels() {
           className="relative overflow-hidden h-screen"
           style={{ height: "100svh" }}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('${panel.image}')`,
-              backgroundPosition: panel.position ?? "center",
-            }}
-          />
+          {panel.image ? (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('${panel.image}')`,
+                backgroundPosition: panel.position ?? "center",
+              }}
+            />
+          ) : (
+            <div className="absolute inset-0 section-pattern ambient-surface bg-forest" />
+          )}
           <div
             className="absolute inset-0"
             style={{

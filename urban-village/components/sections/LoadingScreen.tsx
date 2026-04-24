@@ -15,6 +15,13 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
   const exitTriggered = useRef(false);
   const mountedAt = useRef(Date.now());
 
+  const triggerExit = () => {
+    if (exitTriggered.current) return;
+    exitTriggered.current = true;
+    setExiting(true);
+    setTimeout(onComplete, 600);
+  };
+
   useEffect(() => {
     const slowTimer = setTimeout(() => setShowProgress(true), 3000);
     return () => clearTimeout(slowTimer);
@@ -23,13 +30,6 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
   useEffect(() => {
     const MIN_DURATION_MS = 4000;
     const MAX_WAIT_MS = 6000;
-
-    const triggerExit = () => {
-      if (exitTriggered.current) return;
-      exitTriggered.current = true;
-      setExiting(true);
-      setTimeout(onComplete, 600);
-    };
 
     let minTimer: ReturnType<typeof setTimeout> | null = null;
     if (heroLoaded) {
@@ -64,6 +64,19 @@ export default function LoadingScreen({ onComplete, heroLoaded }: LoadingScreenP
           />
 
           <div className="relative text-center">
+            <motion.button
+              type="button"
+              onClick={triggerExit}
+              data-cursor="hover"
+              aria-label="Skip intro"
+              className="mx-auto mb-5 block z-20 font-sans text-[11px] lg:text-[12px] uppercase tracking-[0.22em] text-cream/70 hover:text-cream transition-colors"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
+            >
+              Skip intro
+            </motion.button>
+
             <motion.div
               className="mx-auto mb-5 w-fit"
               initial={{ opacity: 0, y: 10 }}

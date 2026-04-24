@@ -38,6 +38,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    cursor: default;
   }
 
   body {
@@ -45,11 +46,28 @@
     color: var(--cream);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    cursor: none;
+    cursor: default;
   }
 
-  @media (pointer: coarse) {
-    body { cursor: auto; }
+  *, *::before, *::after {
+    cursor: inherit;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  select,
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    cursor: text;
   }
 
   *:focus-visible {
@@ -64,5 +82,183 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .section-grain {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .section-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(245, 239, 230, 0.1) 0 1px, transparent 1px),
+      radial-gradient(circle at 80% 30%, rgba(245, 239, 230, 0.08) 0 1px, transparent 1px),
+      radial-gradient(circle at 35% 75%, rgba(245, 239, 230, 0.08) 0 1px, transparent 1px);
+    background-size: 3px 3px, 4px 4px, 5px 5px;
+  }
+
+  .heritage-lines {
+    background-image:
+      linear-gradient(120deg, rgba(201, 168, 76, 0.13) 1px, transparent 1px),
+      linear-gradient(60deg, rgba(196, 105, 42, 0.1) 1px, transparent 1px);
+    background-size: 44px 44px, 56px 56px;
+  }
+
+  .sand-panel {
+    background: linear-gradient(160deg, rgba(245, 239, 230, 0.1) 0%, rgba(122, 97, 71, 0.14) 100%);
+    border: 1px solid rgba(245, 239, 230, 0.16);
+    box-shadow: 0 30px 60px rgba(15, 26, 14, 0.25);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  .sun-ring {
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 6px rgba(201, 168, 76, 0.07);
+  }
+
+  .clay-orb {
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, rgba(245, 239, 230, 0.2), rgba(196, 105, 42, 0.35) 30%, rgba(74, 55, 40, 0.7) 72%);
+    filter: blur(0.2px);
+  }
+
+  .hero-dusk-wash {
+    background:
+      radial-gradient(120% 90% at 50% 100%, rgba(196, 105, 42, 0.36) 0%, rgba(196, 105, 42, 0.06) 44%, transparent 70%),
+      linear-gradient(to top, rgba(15, 26, 14, 0.82) 0%, rgba(15, 26, 14, 0.42) 45%, rgba(15, 26, 14, 0.18) 100%);
+  }
+
+  .ambient-surface {
+    background-image:
+      radial-gradient(120% 92% at 50% 100%, rgba(196, 105, 42, 0.18) 0%, rgba(196, 105, 42, 0.03) 48%, transparent 75%),
+      linear-gradient(to top, rgba(15, 26, 14, 0.18) 0%, rgba(15, 26, 14, 0.04) 60%, transparent 100%);
+    background-size: auto, auto;
+    background-position: center bottom, center;
+  }
+
+  .section-pattern {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .section-pattern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: url('/images/africanpattern.png');
+    background-repeat: repeat;
+    background-size: clamp(180px, 20vw, 280px);
+    background-position: center;
+    background-attachment: scroll;
+    opacity: 0.20;
+    mix-blend-mode: normal;
+  }
+
+  .section-pattern > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-pattern-overlay {
+    pointer-events: none;
+    background-image: url('/images/africanpattern.png');
+    background-repeat: repeat;
+    background-size: clamp(180px, 20vw, 280px);
+    background-position: center;
+    background-attachment: scroll;
+    opacity: 0.11;
+    mix-blend-mode: normal;
+  }
+
+  .adire-motif {
+    background-image:
+      radial-gradient(circle, rgba(201, 168, 76, 0.18) 1px, transparent 1.2px),
+      radial-gradient(circle, rgba(245, 239, 230, 0.1) 1px, transparent 1.2px);
+    background-size: 18px 18px, 22px 22px;
+    background-position: 0 0, 11px 11px;
+  }
+
+  .adire-band {
+    background-image:
+      linear-gradient(135deg, rgba(201, 168, 76, 0.55) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(201, 168, 76, 0.55) 25%, transparent 25%),
+      linear-gradient(315deg, rgba(196, 105, 42, 0.42) 25%, transparent 25%),
+      linear-gradient(45deg, rgba(196, 105, 42, 0.42) 25%, transparent 25%);
+    background-size: 20px 20px;
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    border: 1px solid rgba(245, 239, 230, 0.28);
+    box-shadow: 0 10px 28px rgba(12, 20, 11, 0.35);
+  }
+
+  .palm-shadow-left,
+  .palm-shadow-right {
+    position: absolute;
+    bottom: -20px;
+    width: 34vw;
+    height: 52vh;
+    pointer-events: none;
+  opacity: 0.65;
+    filter: blur(1px);
+    background-repeat: no-repeat;
+  }
+
+  .palm-shadow-left {
+    left: -4vw;
+    background-image:
+      radial-gradient(60% 55% at 18% 86%, rgba(12, 20, 11, 0.82) 0%, transparent 70%),
+      linear-gradient(74deg, transparent 42%, rgba(12, 20, 11, 0.76) 43% 47%, transparent 48%),
+      linear-gradient(36deg, transparent 50%, rgba(12, 20, 11, 0.7) 51% 54%, transparent 55%),
+      linear-gradient(110deg, transparent 48%, rgba(12, 20, 11, 0.68) 49% 53%, transparent 54%);
+  }
+
+  .palm-shadow-right {
+    right: -5vw;
+    background-image:
+      radial-gradient(60% 55% at 82% 86%, rgba(12, 20, 11, 0.82) 0%, transparent 70%),
+      linear-gradient(286deg, transparent 42%, rgba(12, 20, 11, 0.76) 43% 47%, transparent 48%),
+      linear-gradient(324deg, transparent 50%, rgba(12, 20, 11, 0.7) 51% 54%, transparent 55%),
+      linear-gradient(250deg, transparent 48%, rgba(12, 20, 11, 0.68) 49% 53%, transparent 54%);
+  }
+
+  @media (max-width: 767px) {
+    .section-pattern::before {
+      background-size: 190px;
+      background-attachment: scroll;
+      opacity: 0.20;
+    }
+
+    .hero-pattern-overlay {
+      background-size: 190px;
+      background-attachment: scroll;
+      opacity: 0.09;
+    }
+
+    .palm-shadow-left,
+    .palm-shadow-right {
+      width: 44vw;
+      height: 42vh;
+      opacity: 0.5;
+      filter: blur(0.6px);
+    }
+
+    .palm-shadow-left {
+      left: -10vw;
+    }
+
+    .palm-shadow-right {
+      right: -10vw;
+    }
   }
 }

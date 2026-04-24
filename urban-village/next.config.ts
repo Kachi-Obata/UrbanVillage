@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
+import { networkInterfaces } from "node:os";
+
+const localIPv4s = Object.values(networkInterfaces())
+  .flatMap((items) => items ?? [])
+  .filter((item) => item.family === "IPv4" && !item.internal)
+  .map((item) => item.address);
+
+const allowedDevOrigins = [
+  "localhost",
+  "127.0.0.1",
+  ...localIPv4s,
+];
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.18.6", "localhost", "127.0.0.1"],
+  allowedDevOrigins,
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",

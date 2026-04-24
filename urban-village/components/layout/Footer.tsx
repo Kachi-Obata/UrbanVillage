@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-night py-16 text-center">
+    <footer className="section-pattern ambient-surface bg-night py-16 text-center">
       <div className="max-w-[1280px] mx-auto px-5 lg:px-20">
         <div className="mx-auto w-fit mb-8">
           <Image
@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <p className="font-sans text-[11px] text-cream/30 mt-10">
-          © 2025 Urban Village by Terivik. All rights reserved.
+          © 2026 Urban Village by Terivik. All rights reserved.
         </p>
       </div>
     </footer>
