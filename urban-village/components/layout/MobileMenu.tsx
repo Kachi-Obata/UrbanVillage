@@ -23,14 +23,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     if (isOpen) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
-      firstFocusable.current?.focus();
+      document.body.style.height = "100vh";
+      firstFocusable.current?.focus({ preventScroll: true });
     } else {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
+      document.body.style.height = "";
     }
+
     return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
+      document.body.style.height = "";
     };
   }, [isOpen]);
 
