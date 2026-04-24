@@ -46,34 +46,37 @@ export default function Hero({ onImageLoaded }: HeroProps) {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden h-screen"
+      className="section-grain relative w-full overflow-hidden h-screen"
       style={{ height: "100dvh" }}
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/hero.webp')" }}
       />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(15,26,14,0.65) 0%, rgba(15,26,14,0.15) 100%)",
-        }}
-      />
+      <div className="absolute inset-0 hero-pattern-overlay" aria-hidden="true" />
+      <div className="absolute inset-0 hero-dusk-wash" />
+
+  <div className="adire-motif absolute top-[11%] right-[6%] w-[150px] h-[150px] rounded-full opacity-60" aria-hidden="true" />
+  <div className="adire-motif absolute bottom-[18%] left-[8%] w-[92px] h-[92px] rounded-full opacity-45" aria-hidden="true" />
+  <div className="sun-ring absolute hidden lg:block w-36 h-36 top-[16%] left-[9%] opacity-45" aria-hidden="true" />
+  <div className="palm-shadow-left" aria-hidden="true" />
+  <div className="palm-shadow-right" aria-hidden="true" />
 
       <div
         className="absolute left-0 right-0 z-10 flex flex-col items-center text-center px-5 lg:px-20"
         style={{ top: "58%", transform: "translateY(-50%)" }}
       >
         <motion.div
-          className="max-w-[680px] mx-auto"
+          className="max-w-[760px] mx-auto px-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="font-sans text-[12px] text-cream/70 tracking-[0.2em] uppercase">
+          <p className="font-sans text-[11px] text-gold/85 tracking-[0.24em] uppercase">
             Maitama · Abuja
           </p>
+
+          <div className="adire-band mx-auto mt-4 mb-6 h-2 w-[120px] lg:w-[160px] rounded-full" aria-hidden="true" />
 
           <div className="my-6">
             <h1 className="font-display font-normal text-cream leading-[1.05] text-[46px] lg:text-[88px]">
@@ -85,8 +88,8 @@ export default function Hero({ onImageLoaded }: HeroProps) {
             <div className="w-12 h-px bg-cream/30" />
           </div>
 
-          <p className="font-sans text-cream/75 leading-[1.6] text-[14px] lg:text-[17px]">
-            A park. A table. A moment that&apos;s yours.
+          <p className="font-sans text-cream/85 leading-[1.65] text-[15px] lg:text-[17px] max-w-[520px] mx-auto">
+            A park. A table. A moment that&apos;s yours — rooted in Nigerian warmth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">

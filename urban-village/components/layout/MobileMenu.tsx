@@ -22,11 +22,16 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       firstFocusable.current?.focus();
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -44,9 +49,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-[9000] bg-forest flex flex-col"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          className="section-pattern ambient-surface fixed inset-0 z-[11000] bg-forest flex flex-col"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
@@ -62,13 +67,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </button>
           </div>
 
-          <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+          <nav className="flex-1 flex flex-col justify-center items-center text-center px-8 gap-5">
             {navItems.map((item, i) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: -24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.07, ease: "easeOut" }}
+                transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
               >
                 <a
                   href={item.href}
@@ -76,10 +81,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   data-cursor="hover"
                   className="block group"
                 >
-                  <span className="block font-sans text-[11px] text-terracotta tracking-[0.15em] uppercase mb-1">
-                    0{i + 1}
-                  </span>
-                  <span className="block font-display text-[48px] leading-none text-cream hover:text-cream/80 transition-colors">
+                  <span className="block font-display text-[44px] lg:text-[52px] leading-none text-cream hover:text-cream/80 transition-colors">
                     {item.label}
                   </span>
                 </a>
@@ -87,7 +89,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ))}
           </nav>
 
-          <div className="px-8 pb-10">
+          <div className="mt-10 px-8 pb-14 text-center">
             <p className="font-sans text-[14px] text-cream/60">
               @urbanvillagebyterivik
             </p>

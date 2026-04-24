@@ -32,7 +32,7 @@ export default function SpaceGallery() {
   return (
     <section
       id="space"
-      className="bg-forest pt-[72px] lg:pt-[120px] pb-16 lg:pb-20 px-5 lg:px-20"
+      className="section-pattern ambient-surface overflow-hidden bg-forest pt-[72px] lg:pt-[120px] pb-16 lg:pb-20 px-5 lg:px-20"
     >
       <div className="max-w-[1280px] mx-auto">
         <div className="text-center mb-14">

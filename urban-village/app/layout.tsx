@@ -3,7 +3,6 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/layout/CustomCursor";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -89,7 +88,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <CustomCursor />
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
